@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <!-- 공통어휘는 
+    https://schema.org/Store에 legalName, telephone (이름, 전화번호)
+    http://rdfs.co/juso/kr/RoadNameAddress (도로명주소)
+    http://rdfs.co/juso/kr/EastAsianAddress (행정동)
+
+    에서 찾음-->
+
+    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    
+
+    <xs:element name="kunsanGift">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="store" type="storeType" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="storeType">
+        <xs:sequence>
+            <xs:element name="legalName" type="xs:string"/> <!--이름-->
+            <xs:element name="category" type="categoryType" minOccurs="0"/> <!--업종-->
+            <xs:element name="RoadNameAddress" type="xs:string"/> <!--도로명주소-->
+            <xs:element name="AdministrativeNeighborhood" type="AdministrativeNeighborhoodType"/> <!--행정동-->
+            <xs:element name="telephone" type="telephoneType"/> <!--전화번호-->
+            <xs:element name="IsThisSpecial" type="IsThisSpecialType"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:integer"/> <!--아이디-->
+    </xs:complexType>
+
+    <xs:complexType name="IsThisSpecialType">
+        <xs:sequence>
+            <xs:element name="IsThisGunsanGift" type="OXType"/> <!--군산사랑상품권 가맹점 여부-->
+            <xs:element name="IsThisMillenniumStore" type="OXType"/> <!--백년가게 여부-->
+            <xs:element name="IsThisHoleIntheWall" type="OXType"/> <!--맛집 여부-->
+            <xs:element name="IsThisChackanStore" type="OXType"/> <!--착한가격업소 여부-->
+            <xs:element name="IsThisGoodRestaurant" type="OXType"/> <!--모범식당-->
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="OXType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="O"/>
+            <xs:enumeration value="X"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="categoryType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="간식"/>
+            <xs:enumeration value="도시락"/>
+            <xs:enumeration value="분식"/>
+            <xs:enumeration value="뷔페"/>
+            <xs:enumeration value="샤브샤브"/>
+            <xs:enumeration value="술집"/>
+            <xs:enumeration value="슈퍼마켓"/>
+            <xs:enumeration value="식품"/>
+            <xs:enumeration value="식품판매"/>
+            <xs:enumeration value="아시아음식"/>
+            <xs:enumeration value="야식"/>
+            <xs:enumeration value="양식"/>
+            <xs:enumeration value="유흥시설"/>
+            <xs:enumeration value="음식점"/>
+            <xs:enumeration value="일식"/>
+            <xs:enumeration value="중식"/>
+            <xs:enumeration value="치킨"/>
+            <xs:enumeration value="카페"/>
+            <xs:enumeration value="패스트푸드"/>
+            <xs:enumeration value="퓨전요리"/>
+            <xs:enumeration value="한식"/>
+            <xs:enumeration value="패스트푸드"/>
+            <xs:enumeration value="패스트푸드"/>
+            <xs:enumeration value="미분류됨"/>
+        </xs:restriction>
+      </xs:simpleType>
+
+      <xs:simpleType name="AdministrativeNeighborhoodType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="옥구읍"/>
+            <xs:enumeration value="옥산면"/>
+            <xs:enumeration value="회현면"/>
+            <xs:enumeration value="임피면"/>
+            <xs:enumeration value="서수면"/>
+            <xs:enumeration value="대야면"/>
+            <xs:enumeration value="개정면"/>
+            <xs:enumeration value="성산면"/>
+            <xs:enumeration value="나포면"/>
+            <xs:enumeration value="옥도면"/>
+            <xs:enumeration value="옥서면"/>
+            <xs:enumeration value="해신동"/>
+            <xs:enumeration value="월명동"/>
+            <xs:enumeration value="삼학동"/>
+            <xs:enumeration value="신풍동"/>
+            <xs:enumeration value="중앙동"/>
+            <xs:enumeration value="흥남동"/>
+            <xs:enumeration value="조촌동"/>
+            <xs:enumeration value="경암동"/>
+            <xs:enumeration value="구암동"/>
+            <xs:enumeration value="개정동"/>
+            <xs:enumeration value="수송동"/>
+            <xs:enumeration value="나운동"/>
+            <xs:enumeration value="소룡동"/>
+            <xs:enumeration value="미성동"/>
+        </xs:restriction>
+      </xs:simpleType>
+
+    <xs:simpleType name="telephoneType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="063\d{3,4}\d{4}"/>
+            <xs:pattern value="-"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    </xs:schema>

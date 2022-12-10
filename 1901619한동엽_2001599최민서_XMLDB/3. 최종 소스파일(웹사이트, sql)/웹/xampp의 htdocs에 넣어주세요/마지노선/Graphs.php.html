@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<!-- saved from url=(0027)http://localhost/Graphs.php -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <link rel="stylesheet" href="./Graphs.php_files/finalresult.css" type="text/css">
+    </head>
+    <body>
+		<h1>군산의 음식점 통계</h1>
+		<a href="http://localhost/finalresult.php">돌아가기</a>
+
+		<script src="./Graphs.php_files/Chart.min.js.다운로드"></script>
+    
+<script>
+
+		</script>
+
+		<canvas id="bar-chart" width="1500vw" height="700vh" style="display: block;"></canvas> <!--막대그래프-->
+        <br><br><br><br>
+        <canvas id="pie-chart" width="1500vw" height="700vh" style="display: block;"></canvas> <!--파이차트-->
+
+
+<script type="text/javascript">
+	var gunsanStoreCount = 5309;
+	var gunsanGiftCount = 1066;
+	var nonGunsanGiftCount = 4243;
+	var MillenniumStoreCount = 15;
+	var HoleIntheWallCount = 33;
+	var ChackanStoreCount = 23;
+	var GoodRestaurantCount = 52;
+	
+    new Chart(document.getElementById("bar-chart"), {
+	    type: 'bar',
+	    data: {
+	    labels: ["전체 음식점","군산사랑상품권 가맹점", "미가맹점", "백년가게", "맛집", "착한가격업소", "모범음식점"],
+  	    datasets: [
+            {
+              label: "점포수",
+              backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850","#c45850","#c45850"],
+             data: [gunsanStoreCount,gunsanGiftCount,nonGunsanGiftCount,MillenniumStoreCount,HoleIntheWallCount,ChackanStoreCount,GoodRestaurantCount]
+            }
+        ]
+        },
+        options: {
+	    	responsive: false,
+        	legend: { display: false },
+
+         	title: {
+            	display: true,
+            	text: '군산 음식점 현황 (2022)'
+        	}
+        }
+    });
+
+    var Okgu=29;
+    var Oksan=43;
+    var Huihyun=33;
+    var Impi=71;
+    var Seosu=158;
+    var Daeya=64;
+    var Gaejung=0;
+    var Sungsan=48;
+    var Napo=141;
+    var Okdo=106;
+    var Okseo=51;
+    var  Haesin=146;
+    var  Wolmyeong=211;
+    var  Samhak=63;
+    var  Sinpung=196;
+    var  Jungang=509;
+    var  Heungnam=198;
+    var  Jochon=397;
+    var  Gyungam=104;
+    var  Guam=83;
+    var  Susong=848;
+    var  Naun=933;
+    var  Soryong=593;
+    var  Miseong=252;
+
+    new Chart(document.getElementById("pie-chart"), {
+        type: 'pie',
+        data: {
+          labels: [ "옥구읍", "옥산면", "회현면", "임피면", "서수면", "대야면", "개정면", "성산면", "나포면", "옥도면", "옥서면"
+                    ,"해신동", "월명동", "삼학동", "신풍동", "중앙동", "흥남동", "조촌동", "경암동","구암동", "개정동", "수송동"
+                    ,"나운동", "소룡동", "미성동"],
+          datasets: [{
+            label: "행정동별 음식점 현황",
+            backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850","#3e95cd", "#8e5ec2","#3cba5f","#e2c3b9","#545850","#3ef5cd", "#8e51a2","#3cba9f","#e8c3e9","#c458e0","#3ec5cd", "#8e5e72","#ecff9f","#e8f399","#c4a8d0","#5ef5fd", "#eeaea2","#6cbaff","#fe95cd"],
+            data: [Okgu,Oksan,Huihyun,Impi,Seosu,Daeya,Gaejung,Sungsan,Napo,Okdo,Okseo,Haesin,Wolmyeong,Samhak,Sinpung,Jungang,Heungnam,Jochon,Gyungam,Guam,Susong,Naun,Soryong,Miseong]
+          }]
+        },
+        options: {
+            responsive: false,
+          title: {
+            display: true,
+            text: '행정동별 음식점 현황'
+          }
+        }
+    });
+</script>
+
+
+
+</body></html>
